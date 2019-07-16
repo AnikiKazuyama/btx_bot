@@ -64,7 +64,7 @@ class BtxBot():
     
     @send_typing_action
     def add_task(self, bot, update, args):
-        action_response = requests.post(f'{settings.API_URL}/task', data=json.dumps({'title': args[0:]}))
+        action_response = requests.post(f'{settings.API_URL}/task', data=json.dumps({'title': ' '.join(args[0:])}))
         
         if (action_response.status_code == 200):
             update.message.reply_text(f"Задача успешно добавлена")
